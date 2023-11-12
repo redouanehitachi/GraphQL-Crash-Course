@@ -9,13 +9,22 @@ const resolvers = {
     Query: {
         games() {
             return db.games
+        }, game(_, arg) {
+            return db.games.find(game => game.id === arg.id)
         },
+
         reviews() {
             return db.reviews
         },
-        authors() {
+        review(_, arg) {
+            return db.reviews.find((review) => review.id === arg.id)
+        }, authors() {
             return db.authors
-        }
+        },
+        author(_, arg) {
+            return db.authors.find((review) => review.id === arg.id)
+        },
+
     }
 }
 // server setup
